@@ -25,7 +25,7 @@ def setUp():
 
 def test_jquery_resource():
     from tw2.jquery import jquery_js
-    the_link = '/resources/tw2.jquery/static/jquery/1.7.1/jquery.js'
+    the_link = '/resources/tw2.jquery/static/jquery/1.10.2/jquery.js'
     eq_(jquery_js.req().link, the_link)
 
 def test_jquery_js_function():
@@ -37,13 +37,13 @@ def test_jquery_script_name():
         twc.make_middleware(script_name='/lol')
     from tw2.jquery import jquery_js
     twc.core.request_local()['middleware'].script_name = '/lol'
-    the_link = '/lol/resources/tw2.jquery/static/jquery/1.7.1/jquery.js'
+    the_link = '/lol/resources/tw2.jquery/static/jquery/1.10.2/jquery.js'
     eq_(jquery_js.req().link, the_link)
 
 def test_jquery_external():
     from tw2.jquery import jquery_js
     jquery_js.external = True
-    the_link = 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1//jquery.js'
+    the_link = 'http://ajax.googleapis.com/ajax/libs/jquery/1.10.2//jquery.js'
     eq_(jquery_js.req().link, the_link)
 
 def test_jquery_custom():
